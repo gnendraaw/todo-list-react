@@ -6,17 +6,17 @@ function TodoList({ category, todos, markDone, markUndo, deleteTodo }) {
     <div className="todo-list">
       <h2>{category}</h2>
       <div className="content">
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            markDone={markDone}
-            markUndo={markUndo}
-            deleteTodo={deleteTodo}
-            {...todo}
-          />
-        ))}
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          markDone={markDone}
+          markUndo={markUndo}
+          deleteTodo={deleteTodo}
+          {...todo}
+        />
+      ))}
+
       </div>
-      <br />
     </div>
   );
 }

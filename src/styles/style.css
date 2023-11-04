@@ -11,7 +11,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 1.2rem;
+  gap: 2rem;
   margin: 2rem 1.2rem;
 }
 
@@ -69,14 +69,10 @@
   padding: 1rem;
   cursor: pointer;
   border: 2px solid black;
-  background: transparent;
+  background: #982176;
   font-size: 1rem;
   transition: 0.2s all ease-in;
-}
-
-.todo-form form button:hover, .todo-form form button:focus {
   color: #fff;
-  background: black;
 }
 
 .todo-list {
@@ -85,4 +81,59 @@
   display: flex;
   flex-direction: column;
   gap: .6rem;
+}
+
+.todo-list .content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.2rem;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 2px solid black;
+}
+
+.todo-item__content {
+  flex: 4;
+}
+
+.todo-item__content h3 {
+  margin-bottom: .4rem;
+}
+
+.todo-item__actions {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .4rem;
+}
+
+.btn {
+  padding: 0.8rem;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-done {
+  background-color: #186F65;
+  border: 2px solid #000;
+  color: #fff;
+}
+
+.btn-undo {
+  background-color: #FFCC70;
+  border: 2px solid #000;
+  color: #000;
+}
+
+.btn-remove {
+  background: #D80032;
+  border: 2px solid #000;
+  color: #fff;
 }

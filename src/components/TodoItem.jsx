@@ -10,6 +10,7 @@ function TodoItem({ id, title, desc, isDone, markDone, markUndo, deleteTodo }) {
         <h3>{title}</h3>
         <p>{desc}</p>
       </div>
+
       <div className="todo-item__actions">
         {!isDone ? (
           <ButtonDone id={id} markDone={markDone} />
