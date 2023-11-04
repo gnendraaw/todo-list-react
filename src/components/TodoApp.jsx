@@ -13,14 +13,15 @@ class TodoApp extends React.Component {
 
     this.onAddTodoToListHandler = this.onAddTodoToListHandler.bind(this);
     this.onMarkDoneHandler = this.onMarkDoneHandler.bind(this);
-    this.onToggleDoneHandler = this.onToggleDoneHandler.bind(this);
+    this.onMarkUndoHandler = this.onMarkUndoHandler.bind(this);
     this.onDeleteTodoHandler = this.onDeleteTodoHandler.bind(this);
   }
 
-  onAddTodoToListHandler({ title }) {
+  onAddTodoToListHandler({ title, desc }) {
     const todoObject = {
       id: +new Date(),
       title,
+      desc,
     };
 
     this.setState((prevState) => {
@@ -38,8 +39,12 @@ class TodoApp extends React.Component {
     this.setState({ todos });
   }
 
-  onToggleDoneHandler(id) {
-    // Toggle done and revert todo
+  onMarkUndoHandler(id) {
+    const todos = this.state.todos;
+    const index = todos.findIndex((todo) => todo.id === id);
+    todos[index].isDone = false;
+
+    this.setState({ todos });
   }
 
   onDeleteTodoHandler(id) {
@@ -50,11 +55,16 @@ class TodoApp extends React.Component {
   render() {
     return (
       <div className="todo-app">
+        <div className="title">
+          <h2>Your todo list</h2>
+        </div>
+
         <TodoForm addTodo={this.onAddTodoToListHandler} />
         <TodoList
           category="To do"
           todos={this.state.todos.filter((todo) => !todo.isDone)}
           markDone={this.onMarkDoneHandler}
+          markUndo={this.onMarkUndoHandler}
           deleteTodo={this.onDeleteTodoHandler}
         />
 
@@ -62,6 +72,7 @@ class TodoApp extends React.Component {
           category="Done"
           todos={this.state.todos.filter((todo) => todo.isDone)}
           markDone={this.onMarkDoneHandler}
+          markUndo={this.onMarkUndoHandler}
           deleteTodo={this.onDeleteTodoHandler}
         />
       </div>

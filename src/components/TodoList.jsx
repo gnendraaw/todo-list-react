@@ -1,18 +1,21 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-function TodoList({ category, todos, markDone, deleteTodo }) {
+function TodoList({ category, todos, markDone, markUndo, deleteTodo }) {
   return (
     <div className="todo-list">
       <h2>{category}</h2>
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          markDone={markDone}
-          deleteTodo={deleteTodo}
-          {...todo}
-        />
-      ))}
+      <div className="content">
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            markDone={markDone}
+            markUndo={markUndo}
+            deleteTodo={deleteTodo}
+            {...todo}
+          />
+        ))}
+      </div>
       <br />
     </div>
   );

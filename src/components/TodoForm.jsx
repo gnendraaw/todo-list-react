@@ -6,15 +6,22 @@ class TodoForm extends React.Component {
 
     this.state = {
       title: "",
+      desc: "",
     };
 
     this.onTodoChangeEventHandler = this.onTodoChangeEventHandler.bind(this);
+    this.onDescChangeEventHandler = this.onDescChangeEventHandler.bind(this);
     this.onSubmitEventHanlder = this.onSubmitEventHanlder.bind(this);
   }
 
   onTodoChangeEventHandler(event) {
     const title = event.target.value;
     this.setState({ title });
+  }
+
+  onDescChangeEventHandler(event) {
+    const desc = event.target.value;
+    this.setState({ desc });
   }
 
   onSubmitEventHanlder(event) {
@@ -35,6 +42,13 @@ class TodoForm extends React.Component {
             onChange={this.onTodoChangeEventHandler}
             required
           />
+          <textarea
+            value={this.state.desc}
+            placeholder="Description..."
+            onChange={this.onDescChangeEventHandler}
+            required
+            rows="12"
+          ></textarea>
 
           <button type="submit">Add Todo to list</button>
         </form>

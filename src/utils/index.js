@@ -1,12 +1,14 @@
 const getTodos = () => [
   {
     id: 1,
-    title: "This is first title",
+    title: "Drink water",
+    desc: "Stay hidrated my friend!",
     isDone: false,
   },
   {
     id: 2,
-    title: "This is second",
+    title: "Morning exercise",
+    desc: "Let's stay fit everyday!",
     isDone: false,
   },
 ];
