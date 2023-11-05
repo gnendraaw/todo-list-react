@@ -5,18 +5,21 @@ function TodoList({ category, todos, markDone, markUndo, deleteTodo }) {
   return (
     <div className="todo-list">
       <h2>{category}</h2>
-      <div className="content">
-      {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          markDone={markDone}
-          markUndo={markUndo}
-          deleteTodo={deleteTodo}
-          {...todo}
-        />
-      ))}
-
-      </div>
+      {todos.length > 0 ? (
+        <div className="content">
+          {todos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              markDone={markDone}
+              markUndo={markUndo}
+              deleteTodo={deleteTodo}
+              {...todo}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="content">No items</div>
+      )}
     </div>
   );
 }
